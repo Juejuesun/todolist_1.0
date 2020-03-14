@@ -4,30 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>任务列表</title>
-    <script src="./lib/vue.js"></script>
-    <link rel="stylesheet" href="./lib/bootstrap.css">
-    <link rel="stylesheet" href="./css/hehe.css">
-    <style>
-        .container{
-            display: flex;
-        }
-        .asider{
-            flex: 3;
-            background-color: pink;
-        }
-        .main{
-            flex: 7;
-            background-color: orange;
-        }
-        .finished {
-            text-decoration: line-through;
-        }
-    </style>
+    <script src="../lib/vue.js"></script>
+    <script src="../lib/vue-resource.js"></script>
+    <link rel="stylesheet" href="../lib/bootstrap.css">
+    <link rel="stylesheet" href="../lib/animate.css">
+    <link rel="stylesheet" href="../css/todolist.css">
 </head>
 <body>
     <div id="apps">
         <div class="box1">
-            <div id="time">时间</div>
+            <div class="time">{{timeShow}}</div>
+            <!-- <button @click="getWeatherInfo">获取天气</button> -->
+            <div class="weather">福州：{{weatherNowCont}}-{{weatherNowFl}}℃</div>
         </div>
 
         <div class="container">
@@ -40,21 +28,25 @@
     
             <div class="main">
                 <div class="form-inline text-center"> 
-                    <input class="form-control" autofocus autocomplete="off" required v-model="todocnt">
+                    <input class="form-control" autofocus autocomplete="off" required v-model="todocnt" @keyup.enter="addTodolist">
                     <button class="btn btn-primary" @click="addTodolist">添加</button>
+                    <button class="btn btn-warning" @click="clearTodolist">全部清除</button>
                 </div>
-                <ul >
-                    <li v-for="item in filterList" :key="item.id" :class={finished:item.isFinished}>
-                        <input type="checkbox" v-model="item.isFinished" @change="changed">{{item.cnt}}
-                        <!-- @change="item.isFinished=!item.isFinished" -->
+                <transition-group appear mode="out-in" tag="ul" enter-active-class="animated fadeInRight" leave-active-class="animated fadeOutRight">
+                    <li v-for="item in filterList" :key="item.id" >
+                        <input type="checkbox" v-model="item.isFinished" @change="changed">
+                        <label v-show="!item.editable" :class={finished:item.isFinished}>
+                            {{item.cnt}}
+                        </label>
+                        <input type="text" v-model="item.cnt" v-show="item.editable" @keyup.enter="todoEdited(item)" @blur="todoEdited(item)">
+                        <input type="button" value="修改" @click="todoEdit(item)">
+                        <input type="button" value="删除" @click="del(item)">
                     </li> 
-                </ul>
+                </transition-group>
             </div>
         </div>
-        
-        
     </div>
 
-    <script src="./js/todolist.js"></script>
+    <script src="../js/todolist.js"></script>
 </body>
 </html>
