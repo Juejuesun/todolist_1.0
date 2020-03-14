@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>任务列表</title>
+    <script src="./lib/vue.js"></script>
+    <link rel="stylesheet" href="./lib/bootstrap.css">
+    <link rel="stylesheet" href="./css/hehe.css">
+    <style>
+        .container{
+            display: flex;
+        }
+        .asider{
+            flex: 3;
+            background-color: pink;
+        }
+        .main{
+            flex: 7;
+            background-color: orange;
+        }
+        .finished {
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <div id="apps">
+        <div class="box1">
+            <div id="time">时间</div>
+        </div>
+
+        <div class="container">
+            <div class="asider">
+                <div>待做的项目</div>
+                <div><button @click='changelist(1)'>全部</button><span class="badge">{{allcount}}</span> </div>
+                <div><button @click='changelist(2)'>未完成</button><span class="badge">{{todocount}}</span> </div>
+                <div><button @click='changelist(3)'>已完成</button><span class="badge">{{donecount}}</span></div>
+            </div>
+    
+            <div class="main">
+                <div class="form-inline text-center"> 
+                    <input class="form-control" autofocus autocomplete="off" required v-model="todocnt">
+                    <button class="btn btn-primary" @click="addTodolist">添加</button>
+                </div>
+                <ul >
+                    <li v-for="item in filterList" :key="item.id" :class={finished:item.isFinished}>
+                        <input type="checkbox" v-model="item.isFinished" @change="changed">{{item.cnt}}
+                        <!-- @change="item.isFinished=!item.isFinished" -->
+                    </li> 
+                </ul>
+            </div>
+        </div>
+        
+        
+    </div>
+
+    <script src="./js/todolist.js"></script>
+</body>
+</html>
