@@ -19,7 +19,7 @@ let vm = new Vue({
         // localStorage.setItem()
         // this.todolist = this.deepClone(this.list);
         // console.log(this.todolist)
-        this.getWeatherInfo() //获取天气
+        // this.getWeatherInfo() //获取天气
         this.updateDate();
         this.countlen();
         // this.renderTime();

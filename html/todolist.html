@@ -21,10 +21,10 @@
         </nav>
         <div class="jumbotron box2">
             <div class="container">
-                <h1 style="color: white;">TodoList</h1>
-                <div class="form-inline text-center"> 
-                    <input class="form-control" autofocus autocomplete="off" required v-model="todocnt" @keyup.enter="addTodolist">
-                    <button class="btn btn-primary" @click="addTodolist">添加</button>
+                <h1 style="color: white; text-shadow: 8px 5px 15px rgba(26,136,101);">TodoList</h1>
+                <div class="form-inline text-center chd"> 
+                    <input class="form-control addtodo" style="width: 50%;" autofocus autocomplete="off" required v-model="todocnt" @keyup.enter="addTodolist">
+                    <button class="btn btn-primary" @click="addTodolist"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 添加</button>
                     <button class="btn btn-warning" @click="clearTodolist">全部清除</button>
                 </div>
             </div>

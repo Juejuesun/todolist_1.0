@@ -9,16 +9,27 @@ body{
     flex-direction: column;
   }
 .box1{
-    height: 80px;
+    height: 60px;
     background-color: rgba(26,139,103);
     color: rgba(199,231,220);
     margin-bottom: 0;
-	border-radius: 0;
+    border-radius: 0;
+    box-shadow: 0 1px 2px rgb(22, 97, 73);
 }
 .box2{
     background-color: rgba(29,158,116);
     margin-top: 0;
+    box-shadow: 0 1px 2px rgb(22, 97, 73);
     
+}
+.container{
+    display: flex;
+    justify-content: space-around;
+}
+
+.chd{
+    flex: 6;
+    align-self: flex-end;
 }
 .box3{
     background-color: rgba(29,157,115);
@@ -37,6 +48,8 @@ body{
     background-color: rgba(231, 231, 231, 0.911);
     padding: 0;
     /* margin: 0; */
+    height: 500px;
+    border-radius: 1em;
 }
 .main{
 	flex: 7;
@@ -57,7 +70,7 @@ footer{
 	font-size: 13px;
     line-height: 1.5;
     margin-right: 15px;
-    padding-top: 15px;
+    padding-top: 12px;
 }
 
 .weather{
@@ -66,8 +79,13 @@ footer{
 	font-size: 16px;
     line-height: 1.5;
     margin-right: 15px;
+    margin-bottom: 10px;
 }
 
+.wlst{
+    color: white;
+    text-shadow: 2px 1px 6px rgba(26,136,101);
+}
 .btnblock{
     height: 80px;
     width: 80px;
@@ -81,7 +99,7 @@ footer{
 
 li{
     list-style:none;
-    width: 500px;
+    width: 80%;
     display: flex;
     justify-content: space-between;
     
