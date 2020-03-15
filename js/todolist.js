@@ -70,6 +70,7 @@ let vm = new Vue({
         },
         changed(){
             this.countlen();
+            this.saveData();
         },
         countlen(){
             this.allcount = this.list.length;

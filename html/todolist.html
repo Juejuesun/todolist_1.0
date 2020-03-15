@@ -8,43 +8,58 @@
     <script src="../lib/vue-resource.js"></script>
     <link rel="stylesheet" href="../lib/bootstrap.css">
     <link rel="stylesheet" href="../lib/animate.css">
+    <link rel="stylesheet" href="../lib/checked.min.css">
     <link rel="stylesheet" href="../css/todolist.css">
+    <script src="https://use.fontawesome.com/62534c6bc3.js"></script>
 </head>
 <body>
     <div id="apps">
-        <div class="box1">
+        <nav class="navbar box1">
             <div class="time">{{timeShow}}</div>
             <!-- <button @click="getWeatherInfo">获取天气</button> -->
-            <div class="weather">福州：{{weatherNowCont}}-{{weatherNowFl}}℃</div>
-        </div>
-
-        <div class="container">
-            <div class="asider">
-                <div>待做的项目</div>
-                <div><button @click='changelist(1)'>全部</button><span class="badge">{{allcount}}</span> </div>
-                <div><button @click='changelist(2)'>未完成</button><span class="badge">{{todocount}}</span> </div>
-                <div><button @click='changelist(3)'>已完成</button><span class="badge">{{donecount}}</span></div>
-            </div>
-    
-            <div class="main">
+            <div class="weather">福州：{{weatherNowCont}}{{weatherNowFl}}℃</div>
+        </nav>
+        <div class="jumbotron box2">
+            <div class="container">
+                <h1 style="color: white;">TodoList</h1>
                 <div class="form-inline text-center"> 
                     <input class="form-control" autofocus autocomplete="off" required v-model="todocnt" @keyup.enter="addTodolist">
                     <button class="btn btn-primary" @click="addTodolist">添加</button>
                     <button class="btn btn-warning" @click="clearTodolist">全部清除</button>
                 </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="asider">
+                <div>待做的项目</div>
+                <div class="btnblock"  @click='changelist(1)'><label>全部</label><span class="badge">{{allcount}}</span> </div>
+                <div class="btnblock"  @click='changelist(2)'><label>未完成</label><span class="badge">{{todocount}}</span> </div>
+                <div class="btnblock"  @click='changelist(3)'><label>已完成</label><span class="badge">{{donecount}}</span></div>
+            </div>
+    
+            <div class="main">
+                
                 <transition-group appear mode="out-in" tag="ul" enter-active-class="animated fadeInRight" leave-active-class="animated fadeOutRight">
                     <li v-for="item in filterList" :key="item.id" >
-                        <input type="checkbox" v-model="item.isFinished" @change="changed">
+                        <input type="checkbox" class="checked-boom" v-model="item.isFinished" @change="changed">
                         <label v-show="!item.editable" :class={finished:item.isFinished}>
                             {{item.cnt}}
                         </label>
                         <input type="text" v-model="item.cnt" v-show="item.editable" @keyup.enter="todoEdited(item)" @blur="todoEdited(item)">
-                        <input type="button" value="修改" @click="todoEdit(item)">
-                        <input type="button" value="删除" @click="del(item)">
+                        <div>
+                            <span type="button" class="edit-btn" @click="todoEdit(item)"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+                            <span type="button" class="del-btn" @click="del(item)"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
+                        </div>
+                        
                     </li> 
                 </transition-group>
             </div>
         </div>
+        <footer class="navbar box3">
+            <div class="container">
+                hhh
+            </div>
+        </footer>
     </div>
 
     <script src="../js/todolist.js"></script>
