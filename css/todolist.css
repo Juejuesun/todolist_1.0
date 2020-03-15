@@ -19,7 +19,7 @@ body{
 .box2{
     background-color: rgba(29,158,116);
     margin-top: 0;
-    box-shadow: 0 1px 2px rgb(22, 97, 73);
+    box-shadow: 0 0 2px rgb(22, 97, 73);
     
 }
 .container{
@@ -37,7 +37,7 @@ body{
     margin-bottom: 0;
     margin-top: 10%;
     border-radius: 0;
-    box-shadow: 0 1px 2px rgb(22, 97, 73);
+    box-shadow: 0 0 2px rgb(22, 97, 73);
 }
 .container{
     display: flex;
@@ -49,9 +49,10 @@ body{
     /* background-color: rgba(231, 231, 231, 0.911); */
     background-color: #eee;
     padding: 0;
-    /* margin: 0; */
+    margin-left: 5px;
     height: 500px;
     border-radius: 1em;
+    box-shadow: 0 0 5px rgba(226, 223, 223, 0.767);
 }
 .btnbox{
     display: flex;
@@ -61,7 +62,8 @@ body{
 }
 .main{
 	flex: 7;
-	background-color: rgba(255, 255, 255, 0.822);
+    background-color: rgba(255, 255, 255, 0.822);
+    border-radius: 1em;
 }
 footer{
     height: 50px;
@@ -122,9 +124,16 @@ footer{
 li{
     list-style:none;
     width: 80%;
+    font-size: 17px;
+    font-family: FangSong,FangSong_GB2312;
+    margin: 10px;
+    border-bottom:1px dashed rgba(50, 197, 148, 0.336);
+    /* border-bottom: 1px dashed transparent;
+    background: linear-gradient(white,white) padding-box,
+    repeating-linear-gradient(-40deg,rgba(50, 197, 148, 0.336) 0, rgba(50, 197, 148, 0.336) 0.25em,white 0,white 0.75em); */
+
     display: flex;
     justify-content: space-between;
-    
 }
 li:hover{
     background-color: #eee;
@@ -170,4 +179,10 @@ input[type="checkbox"]:checked::before{
 .del-btn{
     font-size: 20px;
     color: rgba(236,112,99);
+}
+
+.headview{
+    color: rgba(199,231,220);
+    margin-left: 20px;
+    width: 20%;
 }

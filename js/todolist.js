@@ -17,6 +17,7 @@ let vm = new Vue({
         flag1:false,
         flag2:false,
         flag3:false,
+        wethcnd:''
     },
     created(){
         // localStorage.setItem()
@@ -108,7 +109,7 @@ let vm = new Vue({
                 console.log(weatherData.body.HeWeather6[0].now);
                 this.weatherNowFl = weatherData.body.HeWeather6[0].now.fl;
                 this.weatherNowCont = weatherData.body.HeWeather6[0].now.cond_txt;
-
+                this.wethcnd = "../img/cond-icon-heweather/"+weatherData.body.HeWeather6[0].now.cond_code+".png";
             })
         },
         flagclear(){

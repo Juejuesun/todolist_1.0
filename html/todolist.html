@@ -16,12 +16,17 @@
     <div id="apps">
         <nav class="navbar box1">
             <div class="time">{{timeShow}}</div>
+            <div class="weather">福州：{{weatherNowFl}}℃<img :src="wethcnd" style="width: 25px;height: 25px;">{{weatherNowCont}}</div>
             <!-- <button @click="getWeatherInfo">获取天气</button> -->
-            <div class="weather">福州：{{weatherNowCont}}{{weatherNowFl}}℃</div>
         </nav>
         <div class="jumbotron box2">
             <div class="container">
-                <h1 style="color: white; text-shadow: 8px 5px 15px rgba(26,136,101);">TodoList</h1>
+                <div class="headview">
+                    <h1 style="color: white; text-shadow: 8px 5px 15px rgb(8, 87, 62);">TodoList</h1>
+                    <p>快去添加你的项目吧！记录完美轨迹！</p>
+                    <!-- <p></p> -->
+                </div>
+                
                 <div class="form-inline text-center chd"> 
                     <input class="form-control addtodo" style="width: 50%;" autofocus autocomplete="off" required v-model="todocnt" @keyup.enter="addTodolist">
                     <button class="btn btn-primary" @click="addTodolist"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 添加</button>
@@ -79,7 +84,10 @@
         </div>
         <footer class="navbar box3">
             <div class="container">
-                hhh
+                <div>
+                    Copyright &copy; 2020 todolist_1.0
+                    <a href="https://github.com/Juejuesun/todolist_1.0.git" style="text-decoration: none;color: rgba(199,231,220);font-size: 20px;" target="_blank"><i class="fa fa-git" aria-hidden="true"></i></a>
+                </div>
             </div>
         </footer>
     </div>
