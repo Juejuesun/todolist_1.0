@@ -13,13 +13,16 @@ let vm = new Vue({
         value:1,
         timeShow:'',
         weatherNowFl:'',
-        weatherNowCont:''
+        weatherNowCont:'',
+        flag1:false,
+        flag2:false,
+        flag3:false,
     },
     created(){
         // localStorage.setItem()
         // this.todolist = this.deepClone(this.list);
         // console.log(this.todolist)
-        // this.getWeatherInfo() //获取天气
+        this.getWeatherInfo() //获取天气
         this.updateDate();
         this.countlen();
         // this.renderTime();
@@ -107,18 +110,27 @@ let vm = new Vue({
                 this.weatherNowCont = weatherData.body.HeWeather6[0].now.cond_txt;
 
             })
+        },
+        flagclear(){
+            this.flag1=this.flag2=this.flag3=false;
         }
     },
     computed:{
         filterList () {
             if (this.value === 2) {
                 // this.listname = '待完成任务'
+                this.flagclear();
+                this.flag2=true;
                 return this.list.filter(item => !item.isFinished)
             } else if (this.value === 3) {
                 // this.listname = '已完成任务'
+                this.flagclear();
+                this.flag3=true;
                 return this.list.filter(item => item.isFinished)
             } else {
                 // this.listname = '所有任务'
+                this.flagclear();
+                this.flag1=true;
                 return this.list
             }
         }
