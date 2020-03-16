@@ -125,7 +125,7 @@ li{
     list-style:none;
     width: 80%;
     font-size: 17px;
-    font-family: FangSong,FangSong_GB2312;
+    font-family: FangSong,FangSong_GB2312,STFangsong,STSong;
     margin: 10px;
     border-bottom:1px dashed rgba(50, 197, 148, 0.336);
     /* border-bottom: 1px dashed transparent;
